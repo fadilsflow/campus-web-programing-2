@@ -8,17 +8,31 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/home', function () {
-    return '<h1>Hallow aku home</h1>
-            <p>this is a paragraph</p>
-        ';
+    return '<h1>ini adalah halaman home</h1>';
 });
 
 Route::get('/profile', function () {
-    return "Hello, world!";
+    return '<h1>ini adalah halaman profile</h1>';
 });
 
 Route::get('/contact', function () {
-    return "Hello, world!";
+    return '<h1>ini adalah halaman contact</h1>';
+});
+
+Route::get('/about-us', function () {
+    return '<h1>ini adalah halaman about us</h1>';
+});
+
+Route::get('/cart', function () {
+    return '<h1>ini adalah halaman cart</h1>';
+});
+
+Route::get('/checkout', function () {
+    return '<h1>ini adalah halaman checkout</h1>';
+});
+
+Route::get('/orders', function () {
+    return '<h1>ini adalah halaman orders</h1>';
 });
 
 Route::view('dashboard', 'dashboard')
