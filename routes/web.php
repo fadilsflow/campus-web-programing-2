@@ -3,38 +3,28 @@
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
-
-Route::get('/home', function () {
-    return '<h1>ini adalah halaman home</h1>';
+Route::get('/', function(){
+return view('web.homepage');
 });
 
-Route::get('/profile', function () {
-    return '<h1>ini adalah halaman profile</h1>';
+Route::get('products', function(){
+return view('web.products');
 });
-
-Route::get('/contact', function () {
-    return '<h1>ini adalah halaman contact</h1>';
+Route::get('product/{slug}', function($slug){
+return "halaman single product - ".$slug;
 });
-
-Route::get('/about-us', function () {
-    return '<h1>ini adalah halaman about us</h1>';
+Route::get('categories', function(){
+return view('web.categories');
 });
-
-Route::get('/cart', function () {
-    return '<h1>ini adalah halaman cart</h1>';
+Route::get('category/{slug}', function($slug){
+return "halaman single category - ".$slug;
 });
-
-Route::get('/checkout', function () {
-    return '<h1>ini adalah halaman checkout</h1>';
+Route::get('cart', function(){
+return "halaman cart";
 });
-
-Route::get('/orders', function () {
-    return '<h1>ini adalah halaman orders</h1>';
+Route::get('checkout', function(){
+return "halaman checkout";
 });
-
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
