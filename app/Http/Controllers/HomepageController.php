@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Categories;
 
 class HomepageController extends Controller
 {
@@ -27,7 +28,8 @@ class HomepageController extends Controller
 
     public function categories()
     {
-        return view('web.categories');
+        $categories = Categories::all();
+        return view('web.categories', ['categories' => $categories]);
     }
 
     public function category($slug)
