@@ -6,14 +6,15 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class card extends Component
+class Card extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
+    public $title;
+    public $image;
+
+    public function __construct($title = '', $image = null)
     {
-        //
+        $this->title = $title;
+        $this->image = $image;
     }
 
     /**
