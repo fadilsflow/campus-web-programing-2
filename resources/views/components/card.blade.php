@@ -1,21 +1,8 @@
 <div class="card" style="width: 18rem;">
-    @if($image)
-        <img src="{{ asset($image) }}" class="card-img-top" alt="Card Image">
-    @endif
-    <div class="card-body">
-      <h5 class="card-title">{{ $title }}</h5>
-      <p class="card-text">{{ $slot }}</p>
-      <button onclick="showAlert()" class="btn btn-primary">Show Alert</button>
-    </div>
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
 </div>
-
-<script>
-    function showAlert() {
-        Swal.fire({
-            title: 'Sorry',
-            text: 'The products have not been added yet.',
-            icon: 'info',
-            confirmButtonText: 'OK'
-        });
-    }
-</script>

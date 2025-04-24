@@ -1,20 +1,9 @@
-<x-Layout>
-        <div class="row">
-            <h3>Categories</h3>
-            @foreach ($categories as $category)
-                <div class="col-2">
-                    <div class="card">
-                        <img src="{{ $category['image'] }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $category['name'] }}</h5>
-                            <p class="card-text">
-                                {{ $category['description'] }}
-                            </p>
-                            <a href="/category/{{ $category['slug'] }}" class="btn
-           btn-primary">Detail</a>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-</x-Layout>
+
+<x-layout>
+<h3>Ini adalah halaman Homepage</h3>
+<x-alerts type="danger" message="Terjadi kesalahan saat memproses data!"></x-alerts>
+
+<x-alerts type="success" message="Data berhasil disimpan!"></x-alerts>
+
+<x-card></x-card>
+</x-layout>
