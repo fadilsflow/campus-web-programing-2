@@ -94,10 +94,11 @@
             <flux:spacer />
 
             <flux:dropdown position="top" align="end">
-                <flux:profile
-                    :initials="auth()->user()->initials()"
-                    icon-trailing="chevron-down"
-                />
+            <flux:profile
+    :name="auth()->user()?->name ?? 'Guest'"
+    :initials="auth()->user()?->initials() ?? 'G'"
+    icon-trailing="chevrons-up-down"
+/>
 
                 <flux:menu>
                     <flux:menu.radio.group>

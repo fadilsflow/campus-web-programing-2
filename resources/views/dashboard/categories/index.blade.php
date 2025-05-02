@@ -1,5 +1,6 @@
 <x-layouts.app :title="__('Categories')">
     <div class="relative mb-6 w-full">
+
         <flux:heading size="xl">Product Categories</flux:heading>
         <flux:subheading size="lg" class="mb-6">Manage data Product Categories</flux:heading>
         <flux:separator variant="subtle" />

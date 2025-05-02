@@ -15,7 +15,7 @@
         @csrf
         
         <flux:input label="Name" name="name" class="mb-3" />
-
+        
         <flux:input label="Slug" name="slug" class="mb-3" />
 
         <flux:textarea label="Description" name="description" class="mb-3" />
