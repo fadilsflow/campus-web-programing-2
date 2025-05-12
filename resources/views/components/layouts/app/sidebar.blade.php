@@ -21,7 +21,7 @@
                         {{ __('Categories') }}
                     </flux:navlist.item>
 
-                    <flux:navlist.item icon="list-bullet" :href="route('products')" :current="request()->routeIs('products')" wire:navigate>
+                    <flux:navlist.item icon="list-bullet" :href="route('products.index')" :current="request()->routeIs('products.*')" wire:navigate>
                         {{ __('Products') }}
                     </flux:navlist.item>
                     
@@ -94,11 +94,11 @@
             <flux:spacer />
 
             <flux:dropdown position="top" align="end">
-            <flux:profile
-    :name="auth()->user()?->name ?? 'Guest'"
-    :initials="auth()->user()?->initials() ?? 'G'"
-    icon-trailing="chevrons-up-down"
-/>
+                <flux:profile
+                    :name="auth()->user()?->name ?? 'Guest'"
+                    :initials="auth()->user()?->initials() ?? 'G'"
+                    icon-trailing="chevrons-up-down"
+                />
 
                 <flux:menu>
                     <flux:menu.radio.group>

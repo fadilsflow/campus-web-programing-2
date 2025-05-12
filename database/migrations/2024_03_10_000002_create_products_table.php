@@ -14,9 +14,14 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('slug')->unique();
+            $table->string('sku')->unique();
             $table->text('description')->nullable();
             $table->decimal('price', 10, 2);
             $table->integer('stock')->default(0);
+            $table->string('image_url')->nullable();
+            $table->foreignId('category_id')->nullable()->constrained('product_categories')->nullOnDelete();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
@@ -28,4 +33,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('products');
     }
-};
+}; 
