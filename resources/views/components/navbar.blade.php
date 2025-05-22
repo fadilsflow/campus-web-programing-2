@@ -1,35 +1,37 @@
 <div>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">E-Commerce</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/products">Products</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Categories
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="/" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h2 class="m-0 text-primary font-bold">Sambat Urip</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse na vbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="/" class="nav-item nav-link active">Home</a>
+                <a href="/about" class="nav-item nav-link">About</a>
+                <a href="/services" class="nav-item nav-link">Services</a>
+                @if($customer)
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="fa fa-user me-2"></i>{{ $customer->name }}
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/category/pria">Pria</a></li>
-                            <li><a class="dropdown-item" href="/category/wanita">Wanita</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="/category/anak-anak">Anak-Anak</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                        <div class="dropdown-menu fade-down m-0">
+                            <a href="/profile" class="dropdown-item">Profile</a>
+                            <div class="dropdown-divider"></div>
+                            <form action="/logout" method="POST" class="dropdown-item p-0">
+                                @csrf
+                                <button type="submit" class="btn btn-link text-dark text-decoration-none px-3 py-2 w-100 text-start">
+                                    <i class="fa fa-sign-out me-2"></i>Logout
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                @else
+                    <a href="/customer/login" class="nav-item nav-link">Login</a>
+                    <a href="/customer/register" class="nav-item nav-link">Register</a>
+                @endif
             </div>
         </div>
     </nav>
- </div>
+</div>
