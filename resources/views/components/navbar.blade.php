@@ -6,7 +6,7 @@
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse na vbar-collapse" id="navbarCollapse">
+        <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="/" class="nav-item nav-link active">Home</a>
                 <a href="/about" class="nav-item nav-link">About</a>
