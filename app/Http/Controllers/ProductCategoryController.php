@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\Models\Categories;
 
 class ProductCategoryController extends Controller
@@ -15,7 +16,7 @@ class ProductCategoryController extends Controller
         $categories = Categories::query()
             ->when($request->filled('q'), function ($query) use ($request) {
                 $query->where('name', 'like', '%' . $request->q . '%')
-                      ->orWhere('description', 'like', '%' . $request->q . '%');
+                    ->orWhere('description', 'like', '%' . $request->q . '%');
             })
             ->paginate(10);
 
@@ -41,7 +42,7 @@ class ProductCategoryController extends Controller
         /**
          * cek validasi input
          */
-        $validator = \Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'slug' => 'required|string|max:255',
             'description' => 'required'
@@ -54,8 +55,8 @@ class ProductCategoryController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->with(
                 [
-                    'errors'=>$validator->errors(),
-                    'errorMessage'=>'Validasi Error, Silahkan lengkapi data terlebih dahulu'
+                    'errors' => $validator->errors(),
+                    'errorMessage' => 'Validasi Error, Silahkan lengkapi data terlebih dahulu'
                 ]
             );
         }
@@ -64,7 +65,7 @@ class ProductCategoryController extends Controller
         $category->name = $request->name;
         $category->slug = $request->slug;
         $category->description = $request->description;
-        
+
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '_' . $image->getClientOriginalName();
@@ -77,7 +78,7 @@ class ProductCategoryController extends Controller
         return redirect()->back()
             ->with(
                 [
-                    'successMessage'=>'Data Berhasil Disimpan'
+                    'successMessage' => 'Data Berhasil Disimpan'
                 ]
             );
     }
@@ -97,8 +98,8 @@ class ProductCategoryController extends Controller
     {
         $category = Categories::find($id);
 
-        return view('dashboard.categories.edit',[
-            'category'=>$category
+        return view('dashboard.categories.edit', [
+            'category' => $category
         ]);
     }
 
@@ -110,7 +111,7 @@ class ProductCategoryController extends Controller
         /**
          * cek validasi input
          */
-        $validator = \Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'slug' => 'required|string|max:255',
             'description' => 'required'
@@ -123,8 +124,8 @@ class ProductCategoryController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->with(
                 [
-                    'errors'=>$validator->errors(),
-                    'errorMessage'=>'Validasi Error, Silahkan lengkapi data terlebih dahulu'
+                    'errors' => $validator->errors(),
+                    'errorMessage' => 'Validasi Error, Silahkan lengkapi data terlebih dahulu'
                 ]
             );
         }
@@ -146,7 +147,7 @@ class ProductCategoryController extends Controller
         return redirect()->back()
             ->with(
                 [
-                    'successMessage'=>'Data Berhasil Disimpan'
+                    'successMessage' => 'Data Berhasil Disimpan'
                 ]
             );
     }
@@ -163,7 +164,7 @@ class ProductCategoryController extends Controller
         return redirect()->back()
             ->with(
                 [
-                    'successMessage'=>'Data Berhasil Dihapus'
+                    'successMessage' => 'Data Berhasil Dihapus'
                 ]
             );
     }
