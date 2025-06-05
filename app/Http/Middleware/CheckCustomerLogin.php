@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Middleware;
+
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -9,15 +11,15 @@ class CheckCustomerLogin
     /**
      * Handle an incoming request.
      *
-     * @param \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response) $next
+     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // If customer is logged in and trying to access guest routes (login/register)
+        // Periksa apakah ada customer yang sudah login (misalnya, session aktif)
         if (auth()->guard('customer')->check()) {
-            return redirect()->route('home')->with('message', 'You are already logged in!');
+            return redirect()->route('home'); // Redirect ke halaman home atau profile customer
         }
 
-        return $next($request);
+        return $next($request); // Jika sudah login, lanjutkan ke route berikutnya
     }
 }

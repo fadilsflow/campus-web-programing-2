@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use Illuminate\Support\Facades\Auth;
@@ -9,8 +11,8 @@ class CustomerAuthController extends Controller
 {
     public function login()
     {
-        return view('web.customer.login',[
-            'title'=>'Login'
+        return view('web.customer.login', [
+            'title' => 'Login'
         ]);
     }
 
@@ -33,8 +35,8 @@ class CustomerAuthController extends Controller
 
     public function register()
     {
-        return view('web.customer.register',[
-            'title'=>'Register'
+        return view('web.customer.register', [
+            'title' => 'Register'
         ]);
     }
 
@@ -54,7 +56,7 @@ class CustomerAuthController extends Controller
 
         Auth::guard('customer')->login($customer);
 
-        return redirect('/login');
+        return redirect('/');
     }
 
     public function logout(Request $request)
