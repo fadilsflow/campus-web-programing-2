@@ -20,9 +20,7 @@
                         @forelse($cart->items as $item)
                         <div class="cart-item d-flex align-items-center mb-3
 border-bottom pb-3">
-                            <img src="{{ $item->itemable->image_url ??
-'https://via.placeholder.com/80?text=Product' }}" class="cart-img me-3 rounded" alt="{{
-$item->itemable->name }}">
+                            <img src="{{ $item->itemable->image_url ? asset('storage/' . $item->itemable->image_url) : 'https://via.placeholder.com/80?text=Product' }}" class="cart-img me-3 rounded" alt="{{ $item->itemable->name }}">
                             <div class="flex-grow-1">
                                 <h5 class="cart-item-name mb-1">{{
 $item->itemable->name }}</h5>
@@ -45,9 +43,9 @@ $item->quantity }}" class="form-control form-control-sm text-center mx-1" style=
                                 </form>
                                 <span class="cart-item-subtotal mb-0 me-3 fw-semibold">Rp.{{ number_format($item->itemable->price * $item->quantity, 0, ',', '.')}}</span>
                                 <form action="{{ route('cart.remove', $item->id)}}" method="POST" onsubmit="return confirm('Hapus item ini dari keranjang?')">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger
 btn-sm" title="Hapus"><i class="bi bi-trash"></i> Hapus</button>
                                 </form>
                             </div>

@@ -133,8 +133,7 @@
    <div class="container-fluid py-4">
       {{ $slot }}
    </div>
-   <footer class="bg-dark text-white pt-4 mt-5" style="background:
-linear-gradient(90deg, #4e54c8 0%, #8f94fb 100%);">
+   <footer class="bg-dark text-white pt-4 mt-5" style="background: black;">
       <div class="container p-3">
          <div class="row">
             <div class="col-md-6 mb-3">
