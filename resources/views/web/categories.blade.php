@@ -13,8 +13,7 @@ text-decoration-none">
 shadow-sm">
                         <div class="mx-auto mb-2"
                             style="width:64px;height:64px;display:flex;align-items:center;justify-content:center;background:#f8f9fa;border-radius:50%;">
-                            <img src="{{ $category->image }}" alt="{{
-$category->name }}" style="width:36px;height:36px;object-fit:contain;">
+                            <img src="{{ $category->image ? asset('storage/' . $category->image) : 'https://via.placeholder.com/64x64?text=No+Image' }}" alt="{{ $category->name }}" style="width:36px;height:36px;object-fit:contain;">
                         </div>
                         <div class="card-body p-2">
                             <h6 class="card-title mb-1 text-dark">{{ $category->name
