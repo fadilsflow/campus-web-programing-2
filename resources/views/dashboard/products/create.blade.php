@@ -6,14 +6,14 @@
     </div>
 
     @if(session()->has('successMessage'))
-        <flux:badge color="lime" class="mb-3 w-full">{{session()->get('successMessage')}}</flux:badge>
+    <flux:badge color="lime" class="mb-3 w-full">{{session()->get('successMessage')}}</flux:badge>
     @elseif(session()->has('errorMessage'))
-        <flux:badge color="red" class="mb-3 w-full">{{session()->get('errorMessage')}}</flux:badge>
+    <flux:badge color="red" class="mb-3 w-full">{{session()->get('errorMessage')}}</flux:badge>
     @endif
 
     <form action="{{ route('products.store') }}" method="post" enctype="multipart/form-data">
         @csrf
-        
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
                 <flux:input label="Name" name="name" class="mb-3" required />
@@ -26,7 +26,7 @@
                 <flux:select label="Category" name="category_id" class="mb-3">
                     <option value="">Select Category</option>
                     @foreach($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
                 </flux:select>
                 <flux:textarea label="Description" name="description" class="mb-3" />
@@ -43,4 +43,4 @@
             <flux:link href="{{ route('products.index') }}" variant="ghost" class="ml-3">Back</flux:link>
         </div>
     </form>
-</x-layouts.app> 
+</x-layouts.app>

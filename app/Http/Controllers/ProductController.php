@@ -19,8 +19,8 @@ class ProductController extends Controller
         $products = Product::query()
             ->when($request->filled('q'), function ($query) use ($request) {
                 $query->where('name', 'like', '%' . $request->q . '%')
-                      ->orWhere('sku', 'like', '%' . $request->q . '%')
-                      ->orWhere('description', 'like', '%' . $request->q . '%');
+                    ->orWhere('sku', 'like', '%' . $request->q . '%')
+                    ->orWhere('description', 'like', '%' . $request->q . '%');
             })
             ->paginate(10);
 
@@ -56,7 +56,7 @@ class ProductController extends Controller
             'description' => 'nullable',
             'price' => 'required|numeric|min:0',
             'stock' => 'required|integer|min:0',
-            'category_id' => 'nullable|exists:product_categories,id',
+            'category_id' => 'nullable|exists:categories,id',
             'image' => 'nullable|image|max:2048',
             'is_active' => 'boolean'
         ]);
@@ -133,7 +133,7 @@ class ProductController extends Controller
             'description' => 'nullable',
             'price' => 'required|numeric|min:0',
             'stock' => 'required|integer|min:0',
-            'category_id' => 'nullable|exists:product_categories,id',
+            'category_id' => 'nullable|exists:categories,id',
             'image' => 'nullable|image|max:2048',
             'is_active' => 'boolean'
         ]);
@@ -164,7 +164,7 @@ class ProductController extends Controller
             if ($product->image_url) {
                 Storage::delete('public/' . $product->image_url);
             }
-            
+
             $image = $request->file('image');
             $imageName = time() . '_' . $image->getClientOriginalName();
             $imagePath = $image->storeAs('uploads/products', $imageName, 'public');
