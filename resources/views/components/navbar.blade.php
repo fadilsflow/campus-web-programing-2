@@ -1,35 +1,51 @@
 <div>
-    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-        <a href="/" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-primary font-bold">Sambat Urip</h2>
-        </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="/" class="nav-item nav-link active">Home</a>
-                <a href="/about" class="nav-item nav-link">About</a>
-                <a href="/services" class="nav-item nav-link">Services</a>
-                @if($customer)
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        <i class="fa fa-user me-2"></i>{{ $customer->name }}
+    <nav class="navbar navbar-expand-lg p-3" style="background: linear-gradient(90deg,
+#4e54c8 0%, #8f94fb 100%);">
+        <div class="container">
+            <a class="navbar-brand text-white" href="/">E-Commerce</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page"
+                            href="/">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/categories">Kategori</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/products">Produk</a>
+                    </li>
+                </ul>
+                <x-cart-icon></x-cart-icon>
+                @if(auth()->guard('customer')->check())
+                <div class="dropdown">
+                    <a class="btn btn-outline-light dropdown-toggle" href="#"
+                        role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ Auth::guard('customer')->user()->name }}
                     </a>
-                    <div class="dropdown-menu fade-down m-0">
-                        <a href="/profile" class="dropdown-item">Profile</a>
-                        <div class="dropdown-divider"></div>
-                        <form action="/customer/logout" method="POST" class="dropdown-item p-0">
-                            @csrf
-                            <button type="submit" class="btn btn-link text-dark text-decoration-none px-3 py-2 w-100 text-start">
-                                <i class="fa fa-sign-out me-2"></i>Logout
-                            </button>
-                        </form>
-                    </div>
+                    <ul class="dropdown-menu dropdown-menu-end"
+                        aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item" href="#">Dashboard</a></li>
+                        <li>
+                            <form method="POST" action="{{ route('customer.logout')
+}}">
+                                @csrf
+                                <button class="dropdown-item"
+                                    type="submit">Logout</button>
+                            </form>
+                        </li>
+                    </ul>
                 </div>
                 @else
-                <a href="/customer/login" class="nav-item nav-link">Login</a>
-                <a href="/customer/register" class="nav-item nav-link">Register</a>
+                <a class="btn btn-outline-light me-2" href="{{
+route('customer.login') }}">Login</a>
+                <a class="btn btn-light text-primary" href="{{
+route('customer.register') }}">Register</a>
                 @endif
             </div>
         </div>

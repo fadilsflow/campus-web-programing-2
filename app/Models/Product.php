@@ -4,8 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Binafy\LaravelCart\Cartable;
 
-class Product extends Model
+
+class Product extends Model implements Cartable
 {
     use HasFactory;
 
@@ -30,6 +32,10 @@ class Product extends Model
         'stock' => 'integer',
         'is_active' => 'boolean'
     ];
+    public function getPrice(): float
+    {
+        return $this->price;
+    }
 
     public function category()
     {
