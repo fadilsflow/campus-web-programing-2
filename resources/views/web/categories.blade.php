@@ -6,6 +6,7 @@
         </div>
         <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
             @foreach($categories as $category)
+            @if($category->is_active)
             <div class="col">
                 <a href="{{ URL::to('/category/'.$category->slug) }}" class="card
 text-decoration-none">
@@ -24,6 +25,7 @@ $category->description }}</p>
                     </div>
                 </a>
             </div>
+            @endif
             @endforeach
         </div>
         <div class="d-flex justify-content-center w-100 mt-4">

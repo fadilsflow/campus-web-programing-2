@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->text('description')->nullable();
             $table->string('image_url')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

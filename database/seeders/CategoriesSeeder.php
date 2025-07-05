@@ -19,31 +19,36 @@ class CategoriesSeeder extends Seeder
                     'name' => 'Electronics',
                     'slug' => 'electronics',
                     'description' => 'Electronic gadgets and devices',
-                    'image' => 'https://placehold.co/300x300?text=Electronics'
+                    'image' => 'https://placehold.co/300x300?text=Electronics',
+                    'is_active' => true
                 ],
                 [
                     'name' => 'Books',
                     'slug' => 'books',
                     'description' => 'Various kinds of books',
-                    'image' => 'https://placehold.co/300x300?text=Books'
+                    'image' => 'https://placehold.co/300x300?text=Books',
+                    'is_active' => true
                 ],
                 [
                     'name' => 'Clothing',
                     'slug' => 'clothing',
                     'description' => 'Men and women clothing',
-                    'image' => 'https://placehold.co/300x300?text=Clothing'
+                    'image' => 'https://placehold.co/300x300?text=Clothing',
+                    'is_active' => true
                 ],
                 [
                     'name' => 'Home & Kitchen',
                     'slug' => 'home-kitchen',
                     'description' => 'Home appliances and kitchenware',
-                    'image' => 'https://placehold.co/300x300?text=Home+%26+Kitchen'
+                    'image' => 'https://placehold.co/300x300?text=Home+%26+Kitchen',
+                    'is_active' => true
                 ],
                 [
                     'name' => 'Sports',
                     'slug' => 'sports',
                     'description' => 'Sports equipment and accessories',
-                    'image' => 'https://placehold.co/300x300?text=Sports'
+                    'image' => 'https://placehold.co/300x300?text=Sports',
+                    'is_active' => true
                 ],
             ]
         );

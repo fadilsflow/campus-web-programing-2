@@ -22,6 +22,11 @@
 
         <flux:input type="file" label="Image" name="image" class="mb-3" />
 
+        <flux:select label="Active Status" name="is_active" class="mb-3">
+            <option value="1" selected>Active</option>
+            <option value="0">Inactive</option>
+        </flux:select>
+
         <flux:separator />
 
         <div class="mt-4">

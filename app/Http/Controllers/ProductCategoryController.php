@@ -114,6 +114,7 @@ class ProductCategoryController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'slug' => 'required|string|max:255',
+            'is_active' => 'boolean',
             'description' => 'required'
         ]);
 
@@ -134,7 +135,7 @@ class ProductCategoryController extends Controller
         $category->name = $request->name;
         $category->slug = $request->slug;
         $category->description = $request->description;
-
+        $category->is_active = $request->is_active;
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '_' . $image->getClientOriginalName();
