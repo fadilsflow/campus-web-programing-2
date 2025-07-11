@@ -51,7 +51,7 @@ Route::group(['prefix' => 'customer'], function () {
 
 
 Route::get('/', [HomepageController::class, 'index'])->name('home');
-Route::get('products', [HomepageController::class, 'products']);
+Route::get('products', [HomepageController::class, 'products'])->name('shop.index');
 Route::get('product/{slug}', [HomepageController::class, 'product'])->name('product.show');
 Route::get('categories', [HomepageController::class, 'categories']);
 Route::get('category/{slug}', [HomepageController::class, 'category']);

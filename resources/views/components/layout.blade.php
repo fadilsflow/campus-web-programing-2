@@ -5,12 +5,30 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>{{ $title ?? ''}}</title>
+   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
+   <link href="https://db.onlinewebfonts.com/c/ea3fae5552070d7a5e8e8c8ae837d1a5?family=Kabel+LT+Std+Black" rel="stylesheet">
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous">
    {{ $style ?? '' }}
    <style>
+      @font-face {
+         font-family: 'KabelLTStdBlack';
+         src: url('/fonts/KabelLTStd-Black.ttf') format('truetype');
+         font-weight: normal;
+         font-style: normal;
+      }
+
+      .kabel-title {
+      font-family: 'KabelLTStdBlack', sans-serif;
+      font-size: 2rem;
+      color: #000;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      }
+
       .category-card {
          transition: transform 0.3s;
          height: 100%;
@@ -130,7 +148,7 @@
 
 <body>
    <x-navbar></x-navbar>
-   <div class="container-fluid py-4">
+   <div>
       {{ $slot }}
    </div>
    <footer class="bg-dark text-white pt-4 mt-5" style="background: black;">

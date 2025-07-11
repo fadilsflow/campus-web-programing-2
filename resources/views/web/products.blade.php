@@ -6,14 +6,13 @@
             @forelse($products as $product)
             <div class="col-md-3 mb-4">
                 <div class="card product-card h-100 shadow-sm">
-                    <img src="{{ $product->image_url ? asset('storage/' . $product->image_url) : 'https://via.placeholder.com/350x200?text=No+Image' }}" class="card-img-top" alt="{{ $product->name }}">
+                    <img src="{{ $product->image_url ? asset('storage/' . $product->image_url) : 'https://via.placeholder.com/350x200?text=No+Image' }}" class="card-img-top" alt="{{ $product->name }}" style="height: 160px !important; object-fit: cover; width: 100%;">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">{{ $product->name }}</h5>
                         <p class="card-text text-truncate">{{ $product->description
 }}</p>
                         <div class="mt-auto">
-                            <span class="fw-bold text-primary">Rp {{
-number_format($product->price, 0, ',', '.') }}</span>
+                            <span class="fw-bold text-primary">Rp {{ number_format($product->price, 0, ',', '.') }}</span>
                             <a href="{{ route('product.show', $product->slug) }}"
                                 class="btn btn-outline-primary btn-sm float-end">Lihat Detail</a>
                         </div>

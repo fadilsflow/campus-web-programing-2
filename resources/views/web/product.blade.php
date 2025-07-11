@@ -24,11 +24,9 @@ Diketahui' }}</span>
             <div class="col-md-6">
                 <h1 class="mb-2 fw-bold">{{ $product->name }}</h1>
                 <div class="mb-3">
-                    <span class="fs-4 text-success fw-semibold">Rp.{{ number_format($product->price,
-0, ',', '.') }}</span>
+                    <span class="fs-4 text-success fw-semibold">Rp.{{ number_format($product->price, 0, ',', '.') }}</span>
                     @if($product->old_price)
-                    <span class="text-muted text-decoration-line-through ms-2">Rp{{
-number_format($product->old_price, 0, ',', '.') }}</span>
+                    <span class="text-muted text-decoration-line-through ms-2">Rp{{ number_format($product->old_price, 0, ',', '.') }}</span>
                     @endif
                 </div>
                 <div class="mb-4">
@@ -74,18 +72,14 @@ number_format($product->old_price, 0, ',', '.') }}</span>
             @foreach($relatedProducts as $relatedProduct)
             <div class="col">
                 <div class="card h-100 shadow-sm">
-                    <img src="{{ $relatedProduct->image_url ??
-'https://via.placeholder.com/350x200?text=No+Image' }}" class="card-img-top" alt="{{
-$relatedProduct->name }}">
+                    <img src="{{ $relatedProduct->image_url ?? 'https://via.placeholder.com/350x200?text=No+Image' }}" class="card-img-top" alt="{{ $relatedProduct->name }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ $relatedProduct->name }}</h5>
-                        <p class="card-text text-truncate">{{ $relatedProduct->description
-}}</p>
+                        <p class="card-text text-truncate">{{ $relatedProduct->description }}</p>
                         <div class="d-flex justify-content-between align-items-center">
-                            <span class="fw-bold text-primary">Rp {{
-number_format($relatedProduct->price, 0, ',', '.') }}</span>
+                            <span class="fw-bold text-pink">Rp {{ number_format($relatedProduct->price, 0, ',', '.') }}</span>
                             <a href="{{ route('product.show', $relatedProduct->slug) }}"
-                                class="btn btn-outline-primary btn-sm">Lihat Detail</a>
+                                class="btn btn-outline-pink btn-sm">Lihat Detail</a>
                         </div>
                     </div>
                 </div>

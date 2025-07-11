@@ -1,7 +1,9 @@
 <div>
-    <nav class="navbar navbar-expand-lg p-3" style="background: black;">
+    <nav class="navbar navbar-expand-lg p-3" style="background: black; font-family: 'Kabel LT Std Black', sans-serif;">
         <div class="container">
-            <a class="navbar-brand text-white" href="/">Metal Merch</a>
+        <a class="navbar-brand d-flex align-items-center" href="/" style="height: 45px;">
+            <img src="/metal-logo.png" alt="Metal Merch" style="max-height: 90px;">
+        </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -45,8 +47,8 @@
                 </div>
                 @else
                 <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <a class="btn btn-outline-light me-2" href="{{ route('customer.login') }}">Login</a>
-                    <a class="btn btn-light text-primary" href="{{ route('customer.register') }}">Register</a>
+                    <a class="btn btn-outline-light me-2 rounded-pill px-3" href="{{ route('customer.login') }}">Login</a>
+                    <a class="btn btn-outline-light me-2 rounded-pill px-3" href="{{ route('customer.register') }}">Register</a>
                 </div>
                 @endif
             </div>
