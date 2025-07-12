@@ -16,8 +16,8 @@ class HomepageController extends Controller
     }
     public function index()
     {
-        $categories = Categories::latest()->take(4)->get();
-        $products = Product::paginate(20);
+        $categories = Categories::latest()->take(3)->get();
+        $products = Product::paginate(8);
         return view($this->themeFolder . '.homepage', [
             'categories' => $categories,
             'products' => $products,

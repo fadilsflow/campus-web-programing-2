@@ -1,7 +1,6 @@
 <section class="w-100" style="background: url('/punk-pink.jpg') center center / cover no-repeat; height: 100vh;">
   <div class="d-flex align-items-center justify-content-center h-100 text-center text-white bg-black bg-opacity-50">
-    <div>
-      <!-- Judul dengan font Orbitron -->
+    <div class="container">
       <h1 class="display-3 fw-bold text-uppercase" style="
         color: #ff007f;
         font-family: 'Orbitron', sans-serif;
