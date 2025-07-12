@@ -176,7 +176,7 @@ text-decoration-none">Kontak</a></li>
                <h6 class="mb-3">Kontak Kami</h6>
                <ul class="list-unstyled small">
                   <li><i class="bi bi-envelope"></i>
-                     info@ecommerce.com</li>
+                     punkzone@gmail.com</li>
                   <li><i class="bi bi-telephone"></i> +62 856 6100
                      994</li>
                   <li><i class="bi bi-geo-alt"></i> Tegal,
@@ -186,7 +186,7 @@ text-decoration-none">Kontak</a></li>
          </div>
          <hr class="bg-secondary">
          <div class="text-center pb-3">
-            <small>(c) {{ date('Y') }} E-Commerce. All rights
+            <small>(c) {{ date('Y') }} PunkZone. All rights
                reserved.</small>
          </div>
       </div>
