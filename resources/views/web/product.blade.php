@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <h1 class="mb-2 fw-bold">{{ $product->name }}</h1>
+                <h1 class="mb-2 fw-bold" style="font-family: 'Orbitron', sans-serif; text-transform: capitalize;">{{ $product->name }}</h1>
                 <div class="mb-3">
                     <span class="fs-4 text-pink fw-semibold">Rp.{{ number_format($product->price, 0, ',', '.') }}</span>
                     @if($product->old_price)
