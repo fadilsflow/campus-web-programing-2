@@ -10,7 +10,7 @@
     </div>
     @endif
     <div class="container my-5">
-        <h1 class="mb-4">Keranjang Belanja</h1>
+        <h1 class="mb-4" style="font-family: 'Orbitron', sans-serif;">Keranjang Belanja</h1>
         @if($cart && count($cart->items))
         <div class="row">
             <!-- Cart Items -->

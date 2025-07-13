@@ -21,12 +21,12 @@
       }
 
       .kabel-title {
-      font-family: 'KabelLTStdBlack', sans-serif;
-      font-size: 2rem;
-      color: #000;
-      text-align: center;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+         font-family: 'KabelLTStdBlack', sans-serif;
+         font-size: 2rem;
+         color: #000;
+         text-align: center;
+         text-transform: uppercase;
+         letter-spacing: 1px;
       }
 
       .category-card {
@@ -107,6 +107,19 @@
       .cart-item-price,
       .cart-item-subtotal {
          font-size: 0.85rem;
+      }
+
+      .btn-outline-pink {
+         color: #e83e8c !important;
+         border: 1px solid #e83e8c !important;
+         background-color: transparent;
+         transition: 0.3s ease;
+      }
+
+
+      .btn-outline-pink:hover {
+         background-color: #e83e8c !important;
+         color: #fff !important;
       }
 
       .btn-sm {

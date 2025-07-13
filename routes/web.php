@@ -8,12 +8,14 @@ use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 
 // use App\Http\Controllers\ThemeController;
 
 // use App\Http\Controllers\OrderController;
 
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\OrderController;
 
 //kode baru diubah menjadi seperti ini
 Route::get('/', [HomepageController::class, 'index'])->name('home');
@@ -84,4 +86,14 @@ Route::group(['middleware' => ['is_customer_login']], function () {
         Route::delete('cart/remove/{id}', 'remove')->name('cart.remove');
         Route::patch('cart/update/{id}', 'update')->name('cart.update');
     });
+});
+
+Route::middleware(['auth:customer'])->group(function () {
+    // Checkout routes
+    Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+    Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
+
+    // Order routes
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+    Route::get('/orders/{id}', [OrderController::class, 'show'])->name('orders.show');
 });
