@@ -77,6 +77,9 @@ class HomepageController extends Controller
     }
     public function cart()
     {
+        if (!auth()->guard('customer')->check()) {
+            return redirect()->route('customer.login');
+        }
         $cart = Cart::query()
             ->with(
                 [
@@ -85,6 +88,7 @@ class HomepageController extends Controller
                 ]
             )
             ->where('user_id', auth()->guard('customer')->user()->id)
+
             ->first();
         return view($this->themeFolder . '.cart', [
             'title' => 'Cart',
@@ -93,6 +97,9 @@ class HomepageController extends Controller
     }
     public function checkout()
     {
+        if (!auth()->guard('customer')->check()) {
+            return redirect()->route('customer.login');
+        }
         return view($this->themeFolder . '.checkout', [
             'title' => 'Checkout'
         ]);
