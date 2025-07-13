@@ -6,9 +6,9 @@
     </div>
 
     @if(session()->has('successMessage'))
-        <flux:badge color="lime" class="mb-3 w-full">{{session()->get('successMessage')}}</flux:badge>
+    <flux:badge color="lime" class="mb-3 w-full">{{session()->get('successMessage')}}</flux:badge>
     @elseif(session()->has('errorMessage'))
-        <flux:badge color="red" class="mb-3 w-full">{{session()->get('errorMessage')}}</flux:badge>
+    <flux:badge color="red" class="mb-3 w-full">{{session()->get('errorMessage')}}</flux:badge>
     @endif
 
     <div class="flex justify-between items-center mb-4">
@@ -63,86 +63,86 @@
             </thead>
             <tbody>
                 @forelse($products as $key=>$product)
-                    <tr>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <p class="text-gray-900 whitespace-no-wrap">
-                                {{ $key+1 }}
-                            </p>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <p class="text-gray-900 whitespace-no-wrap">
-                                @if($product->image_url)
-                                    <img src="{{ asset('storage/' . $product->image_url) }}" alt="{{ $product->name }}" class="h-10 w-10 object-cover rounded">
-                                @else
-                                    <div class="h-10 w-10 bg-gray-200 flex items-center justify-center rounded">
-                                        <span class="text-gray-500 text-sm">N/A</span>
-                                    </div>
-                                @endif
-                            </p>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <p class="text-gray-900 whitespace-no-wrap">
-                                {{ $product->name }}
-                            </p>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <p class="text-gray-900 whitespace-no-wrap">
-                                {{ $product->sku }}
-                            </p>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <p class="text-gray-900 whitespace-no-wrap">
-                                Rp {{ number_format($product->price, 0, ',', '.') }}
-                            </p>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <p class="text-gray-900 whitespace-no-wrap">
-                                {{ $product->stock }}
-                            </p>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <p class="text-gray-900 whitespace-no-wrap">
-                                {{ $product->category?->name ?? 'Uncategorized' }}
-                            </p>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <p class="text-{{ $product->is_active ? 'blue-600' : 'red-600' }} whitespace-no-wrap">
-                                {{ $product->is_active ? 'Active' : 'Inactive' }}
-                            </p>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <form id="sync-product-{{ $product->id }}" action="{{ route('products.sync', $product->id) }}" method="POST">
-                                @csrf
-                                <input type="hidden" name="is_active" value="@if($product->hub_product_id) 1 @else 0 @endif" >
+                <tr>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p class="text-gray-900 whitespace-no-wrap">
+                            {{ $key+1 }}
+                        </p>
+                    </td>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p class="text-gray-900 whitespace-no-wrap">
+                            @if($product->image_url)
+                            <img src="{{ asset('storage/' . $product->image_url) }}" alt="{{ $product->name }}" class="h-10 w-10 object-cover rounded">
+                            @else
+                        <div class="h-10 w-10 bg-gray-200 flex items-center justify-center rounded">
+                            <span class="text-gray-500 text-sm">N/A</span>
+                        </div>
+                        @endif
+                        </p>
+                    </td>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p class="text-gray-900 whitespace-no-wrap">
+                            {{ $product->name }}
+                        </p>
+                    </td>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p class="text-gray-900 whitespace-no-wrap">
+                            {{ $product->sku }}
+                        </p>
+                    </td>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p class="text-gray-900 whitespace-no-wrap">
+                            Rp {{ number_format($product->price, 0, ',', '.') }}
+                        </p>
+                    </td>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p class="text-gray-900 whitespace-no-wrap">
+                            {{ $product->stock }}
+                        </p>
+                    </td>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p class="text-gray-900 whitespace-no-wrap">
+                            {{ $product->category?->name ?? 'Uncategorized' }}
+                        </p>
+                    </td>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p class="text-{{ $product->is_active ? 'blue-600' : 'red-600' }} whitespace-no-wrap">
+                            {{ $product->is_active ? 'Active' : 'Inactive' }}
+                        </p>
+                    </td>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <form id="sync-product-{{ $product->id }}" action="{{ route('products.sync', $product->id) }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="is_active" value="@if($product->hub_product_id) 1 @else 0 @endif">
 
-                                @if($product->hub_product_id)
-                                    <flux:switch checked onchange="document.getElementById('sync-product-{{ $product->id }}').submit()" />
-                                @else
-                                    <flux:switch onchange="document.getElementById('sync-product-{{ $product->id }}').submit()" />
-                                @endif
-                            </form>
-                        </td>
-                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <flux:dropdown>
-                                <flux:button icon:trailing="chevron-down">Actions</flux:button>
+                            @if($product->hub_product_id)
+                            <flux:switch checked onchange="document.getElementById('sync-product-{{ $product->id }}').submit()" style="background-color: #ff0080;" />
+                            @else
+                            <flux:switch onchange="document.getElementById('sync-product-{{ $product->id }}').submit()" style="background-color: #ff0080;" />
+                            @endif
+                        </form>
+                    </td>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <flux:dropdown>
+                            <flux:button icon:trailing="chevron-down">Actions</flux:button>
 
-                                <flux:menu>
-                                    <flux:menu.item icon="pencil" href="{{ route('products.edit', $product->id) }}">Edit</flux:menu.item>
-                                    <flux:menu.item icon="trash" variant="danger" onclick="event.preventDefault(); if(confirm('Are you sure you want to delete this product?')) document.getElementById('delete-form-{{ $product->id }}').submit();">Delete</flux:menu.item>
-                                    <form id="delete-form-{{ $product->id }}" action="{{ route('products.destroy', $product->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                    </form>
-                                </flux:menu>
-                            </flux:dropdown>
-                        </td>
-                    </tr>
+                            <flux:menu>
+                                <flux:menu.item icon="pencil" href="{{ route('products.edit', $product->id) }}">Edit</flux:menu.item>
+                                <flux:menu.item icon="trash" variant="danger" onclick="event.preventDefault(); if(confirm('Are you sure you want to delete this product?')) document.getElementById('delete-form-{{ $product->id }}').submit();">Delete</flux:menu.item>
+                                <form id="delete-form-{{ $product->id }}" action="{{ route('products.destroy', $product->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                </form>
+                            </flux:menu>
+                        </flux:dropdown>
+                    </td>
+                </tr>
                 @empty
-                    <tr>
-                        <td colspan="9" class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">
-                            No products found.
-                        </td>
-                    </tr>
+                <tr>
+                    <td colspan="9" class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">
+                        No products found.
+                    </td>
+                </tr>
                 @endforelse
             </tbody>
         </table>

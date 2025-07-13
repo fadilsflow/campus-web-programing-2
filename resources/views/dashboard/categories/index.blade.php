@@ -104,12 +104,12 @@
                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <form id="sync-category-{{ $category->id }}" action="{{ route('category.sync', $category->id) }}" method="POST">
                             @csrf
-                            <input type="hidden" name="is_active" value="@if($category->hub_category_id) 1 @else 0 @endif" >
+                            <input type="hidden" name="is_active" value="@if($category->hub_category_id) 1 @else 0 @endif">
 
                             @if($category->hub_category_id)
-                                <flux:switch checked onchange="document.getElementById('sync-category-{{ $category->id }}').submit()" />
+                            <flux:switch checked onchange="document.getElementById('sync-category-{{ $category->id }}').submit()" style="background-color: #ff0080;" />
                             @else
-                                <flux:switch onchange="document.getElementById('sync-category-{{ $category->id }}').submit()" />
+                            <flux:switch onchange="document.getElementById('sync-category-{{ $category->id }}').submit()" style="background-color: #ff0080;" />
                             @endif
                         </form>
                     </td>

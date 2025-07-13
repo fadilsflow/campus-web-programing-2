@@ -67,6 +67,11 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified']], fu
     Route::post('products/sync/{id}', [ProductController::class, 'sync'])->name('products.sync');
     Route::post('category/sync/{id}', [ProductCategoryController::class, 'sync'])->name('category.sync');
     // Route::resource('themes', ThemeController::class);
+
+    // Order Management Routes
+    Route::get('/orders', [App\Http\Controllers\Admin\OrderController::class, 'index'])->name('admin.orders.index');
+    Route::get('/orders/{id}', [App\Http\Controllers\Admin\OrderController::class, 'show'])->name('admin.orders.show');
+    Route::patch('/orders/{id}/status', [App\Http\Controllers\Admin\OrderController::class, 'updateStatus'])->name('admin.orders.update-status');
 });
 
 

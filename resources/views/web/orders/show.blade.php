@@ -3,8 +3,8 @@
 
     <div class="container my-5">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h1>Detail Pesanan #{{ $order->id }}</h1>
-            <a href="{{ route('orders.index') }}" class="btn btn-outline-primary">
+            <h1 style="font-family: 'Orbitron', sans-serif;">Detail Pesanan #{{ $order->id }}</h1>
+            <a href="{{ route('orders.index') }}" class="btn btn-outline-primary" style="border: 1px solid #e83e8c;  background-color: #e83e8c; color: #fff;">
                 <i class="bi bi-arrow-left"></i> Kembali
             </a>
         </div>

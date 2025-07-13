@@ -2,7 +2,7 @@
     <x-slot name="title">Pesanan Saya</x-slot>
 
     <div class="container my-5 min-vh-100">
-        <h1 class="mb-4">Pesanan Saya</h1>
+        <h1 class="mb-4" style="font-family: 'Orbitron', sans-serif;">Pesanan Saya</h1>
 
         @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -35,7 +35,7 @@
                             </span>
                         </td>
                         <td>
-                            <a href="{{ route('orders.show', $order->id) }}" class="btn btn-sm btn-primary">
+                            <a href="{{ route('orders.show', $order->id) }}" class="btn btn-sm" style="background-color: #e83e8c; color: #fff;">
                                 Detail
                             </a>
                         </td>

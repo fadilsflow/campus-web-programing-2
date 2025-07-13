@@ -2,15 +2,15 @@
     <x-slot name="title">Checkout</x-slot>
 
     <div class="container my-5">
-        <h1 class="mb-4">Checkout</h1>
+        <h1 class="mb-4" style="font-family: 'Orbitron', sans-serif;">Checkout</h1>
 
         @if($cart && count($cart->items))
         <div class="row">
             <!-- Checkout Form -->
             <div class="col-lg-8">
-                <div class="card mb-4">
+                <div class="mb-4">
                     <div class="card-body">
-                        <h5 class="card-title mb-4">Informasi Pengiriman</h5>
+                        <h5 class="card-title mb-4" style="font-family: 'Orbitron', sans-serif;">Informasi Pengiriman</h5>
                         <form action="{{ route('checkout.store') }}" method="POST">
                             @csrf
                             @if($errors->any())
