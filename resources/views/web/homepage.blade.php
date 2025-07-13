@@ -282,7 +282,7 @@
     </div>
 
     <!-- Testimonials -->
-    <div class="bg-light py-5">
+    <div class=" py-5">
         <div class="container">
             <h3 class="section-title">What They Say</h3>
             <div class="row g-4">
