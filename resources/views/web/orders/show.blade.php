@@ -9,6 +9,18 @@
             </a>
         </div>
 
+        @if(session('success'))
+        <div class="alert alert-success mb-4">
+            {{ session('success') }}
+        </div>
+        @endif
+
+        @if(session('error'))
+        <div class="alert alert-danger mb-4">
+            {{ session('error') }}
+        </div>
+        @endif
+
         <div class="row">
             <div class="col-md-8">
                 <div class="card mb-4">
@@ -53,6 +65,17 @@
                             <span class="fw-bold">Total</span>
                             <span class="fw-bold">Rp.{{ number_format($order->total_amount, 0, ',', '.') }}</span>
                         </div>
+
+                        @if($order->status !== 'completed' && $order->status !== 'cancelled')
+                        <hr>
+                        <form action="{{ route('orders.cancel', $order->id) }}" method="POST" class="mt-3">
+                            @csrf
+                            @method('PATCH')
+                            <button type="submit" class="btn btn-danger w-100" onclick="return confirm('Apakah Anda yakin ingin membatalkan pesanan ini?')">
+                                <i class="bi bi-x-circle"></i> Batalkan Pesanan
+                            </button>
+                        </form>
+                        @endif
                     </div>
                 </div>
             </div>
