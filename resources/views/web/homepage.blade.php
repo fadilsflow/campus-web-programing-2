@@ -187,14 +187,15 @@
 
     <!-- Featured Categories -->
     <div class="container py-5">
-        <h3 class="section-title">Kategori Product</h3>
-        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4">
+        <h3 class="section-title text-center mb-4">Kategori Terbaru</h3>
+
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
             @foreach($categories as $category)
             <div class="col">
                 <a href="{{ URL::to('/category/' . $category->slug) }}" class="text-decoration-none">
-                    <div class="h-100 py-4 category-card">
-                        <img src="{{ Storage::url($category->image) }}" alt="{{ $category->name }}" class="category-icon">
-                        <div class="text-center px-3">
+                    <div class="h-100 py-4 category-card text-center">
+                        <img src="{{ Storage::url($category->image) }}" alt="{{ $category->name }}" class="category-icon mb-3">
+                        <div class="px-3">
                             <h5 class="category-name">{{ $category->name }}</h5>
                             <p class="category-desc">{{ $category->description }}</p>
                         </div>
@@ -203,10 +204,12 @@
             </div>
             @endforeach
         </div>
+
         <div class="text-center mt-5">
             <a href="{{ URL::to('/categories') }}" class="btn btn-outline-pink">Lihat Semua Kategori</a>
         </div>
     </div>
+
 
     <!-- Features Section -->
     <div class="feature-section py-5">
@@ -246,10 +249,11 @@
 
     <!-- Featured Products -->
     <div class="container py-5">
-        <h3 class="section-title">Produk Kami</h3>
-        <div class="row g-4">
+        <h3 class="section-title text-center mb-4">Produk Terbaru</h3>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
             @forelse($products as $product)
-            <div class="col-md-3">
+            <div class="col">
                 <div class="card product-card h-100">
                     <div class="position-relative">
                         <img src="{{ Storage::url($product->image_url) }}" class="card-img-top" alt="{{ $product->name }}">
@@ -270,16 +274,18 @@
                 </div>
             </div>
             @empty
-            <div class="col">
-                <div class="alert alert-info">Belum ada produk pada kategori ini.</div>
+            <div class="col-12">
+                <div class="alert alert-info text-center">Belum ada produk pada kategori ini.</div>
             </div>
             @endforelse
         </div>
-        <div class="d-flex justify-content-between align-items-center mt-5">
-            <a href="{{ URL::to('/products') }}" class="btn btn-outline-pink">Lihat Semua Produk</a>
+
+        <div class="d-flex flex-column flex-md-row justify-content-center align-items-center mt-5 gap-3">
+            <a href="{{ URL::to('/products') }}" class="btn btn-outline-pink text-center">Lihat Semua Produk</a>
             {{ $products->links('vendor.pagination.simple-bootstrap-5') }}
         </div>
     </div>
+
 
     <!-- Testimonials -->
     <div class=" py-5">

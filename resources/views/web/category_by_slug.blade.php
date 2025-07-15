@@ -46,7 +46,7 @@
             <div class="col-md-3 mb-4">
                 <div class="card product-card h-100">
                     <div class="position-relative">
-                        <img src="{{ $product->image_url ? asset('storage/' . $product->image_url) : 'https://via.placeholder.com/350x200?text=No+Image' }}" class="card-img-top" alt="{{ $product->name }}">
+                    <img src="{{ $product->image_url ? asset('storage/' . $product->image_url) : 'https://via.placeholder.com/350x200?text=No+Image' }}" class="card-img-top" alt="{{ $product->name }}">
                         @if($product->is_new)
                         <span class="position-absolute top-0 end-0 bg-danger text-white px-3 py-1 m-2 rounded-pill">New</span>
                         @endif

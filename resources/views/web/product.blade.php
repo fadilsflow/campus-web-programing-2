@@ -102,7 +102,7 @@
             <div class="col">
                 <div class="card product-card h-100">
                     <div class="position-relative">
-                        <img src="{{ $relatedProduct->image_url ?? 'https://via.placeholder.com/350x200?text=No+Image' }}" class="card-img-top" alt="{{ $relatedProduct->name }}">
+                        <img src="{{ Storage::url($relatedProduct->image_url) }}" class="card-img-top" alt="{{ $relatedProduct->name }}">
                         @if($relatedProduct->is_new)
                         <span class="position-absolute top-0 end-0 bg-danger text-white px-3 py-1 m-2 rounded-pill">New</span>
                         @endif
