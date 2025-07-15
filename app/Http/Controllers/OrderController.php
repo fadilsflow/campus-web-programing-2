@@ -29,4 +29,19 @@ class OrderController extends Controller
             'order' => $order
         ]);
     }
+
+    public function cancel($id)
+    {
+        $order = Order::where('customer_id', auth()->guard('customer')->user()->id)
+            ->findOrFail($id);
+
+        if ($order->status === 'completed') {
+            return redirect()->back()->with('error', 'Pesanan yang sudah selesai tidak dapat dibatalkan');
+        }
+
+        $order->status = 'cancelled';
+        $order->save();
+
+        return redirect()->back()->with('success', 'Pesanan berhasil dibatalkan');
+    }
 }
